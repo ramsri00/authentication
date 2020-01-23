@@ -1,0 +1,30 @@
+<div>
+  <br />
+  <br />
+  <section>
+    <div>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Registered Mail ID"
+          ngModel
+          required
+          email
+          #emailId
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="emailId.value === ''"
+        (click)="onForgotUserId(emailId.value)"
+      >
+        Request UserId
+      </button>
+    </div>
+  </section>
+</div>

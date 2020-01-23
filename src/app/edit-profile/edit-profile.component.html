@@ -1,0 +1,82 @@
+<section fxFlex fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="libEditProfileForm" (ngSubmit)="onEditProfile()">
+    <div fxLayoutGap="10px">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="firstname"
+          formControlName="firstName"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="lastname"
+          formControlName="lastName"
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="EmailId"
+            formControlName="email"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            placeholder="MobileNumber"
+            formControlName="mobileNumber"
+          />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <div fxLayout="row" fxLayoutGap="20px">
+          <button
+            [disabled]="libEditProfileForm.invalid"
+            mat-raised-button
+            type="submit"
+            color="primary"
+          >
+            update profile
+          </button>
+          <button
+            [routerLink]="['/change-password']"
+            mat-raised-button
+            color="primary"
+            type="button"
+          >
+            Change Password
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="onLogout()"
+          >
+            LogOut
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+<section>
+  <div>
+    <img
+      class="imageSize"
+      [src]="image?.imageGender"
+      alt="This may take sometime"
+    />
+  </div>
+</section>

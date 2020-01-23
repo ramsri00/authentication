@@ -1,0 +1,41 @@
+<section fxFlex fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="libLoginForm" (ngSubmit)="onLogin()">
+    <div>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="username"
+          formControlName="username"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="password"
+          formControlName="password"
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayoutAlign="center center">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="libLoginForm.invalid"
+      >
+        Login
+      </button>
+    </div>
+    <br />
+  </form>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div>
+      <a [routerLink]="['/forgot-password']">Forgot Password</a>
+    </div>
+    <div><a [routerLink]="['/forgot-userid']">Forgot UserId</a></div>
+  </div>
+</section>

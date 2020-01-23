@@ -1,0 +1,22 @@
+<section>
+  <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+    <h2>Welcome To Ruah Library</h2>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <button mat-raised-button [routerLink]="['/login']" color="primary">
+        Login
+      </button>
+      <button mat-raised-button [routerLink]="['/register']" color="primary">
+        Register
+      </button>
+    </div>
+    <div>
+      <br />
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>
+
+<section>
+  <br />
+  <br />
+</section>

@@ -1,0 +1,13 @@
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+mat-form-field {
+  width: 200px;
+}
+.imageSize {
+  width: 100px;
+  height: 100px;
+}

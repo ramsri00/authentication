@@ -1,0 +1,104 @@
+<section fxFlex fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="libRegisterForm" (ngSubmit)="onRegister()">
+    <div fxLayoutGap="10px">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="firstname"
+          formControlName="firstName"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="lastname"
+          formControlName="lastName"
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="EmailId"
+            formControlName="email"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            placeholder="MobileNumber"
+            formControlName="mobileNumber"
+          />
+        </mat-form-field>
+      </div>
+      <div fxFlex fxLayout="column">
+        <mat-form-field>
+          <mat-label>Select your gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let gender of genders" [value]="gender">{{
+              gender
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            placeholder="password"
+            formControlName="password"
+            #password
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            placeholder="confirmPassword"
+            formControlName="confirmPassword"
+            #confirmPassword
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <button type="button" mat-raised-button (click)="filePicker.click()">
+          Add File
+        </button>
+        <input type="file" (change)="onImagePicked($event)" #filePicker />
+      </div>
+      <div
+        class="image-preview"
+        *ngIf="
+          imagePreview != '' &&
+          imagePreview &&
+          (libRegisterForm.value.image.type == 'image/jpeg' ||
+            libRegisterForm.value.image.type == 'image/png')
+        "
+      >
+        <img [src]="imagePreview" [alt]="libRegisterForm.value.image.name" />
+      </div>
+      <div>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="
+            libRegisterForm.invalid || password.value !== confirmPassword.value
+          "
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
